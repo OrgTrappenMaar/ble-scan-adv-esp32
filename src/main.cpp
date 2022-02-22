@@ -16,8 +16,8 @@
     {
         void onResult(BLEAdvertisedDevice advertisedDevice)
         {
-            if (strcmp(advertisedDevice.getName().c_str(), "Radiation") >= 0)
-            {
+            // hier "TrappenMaar invullen indien ik luisteraar zou zijn"
+            if (advertisedDevice.getName().compare("Y2hvY29jaGVzbmV5") == 0) {       
                 Serial.print(advertisedDevice.getName().c_str());
                 Serial.printf(": %d \n", advertisedDevice.getRSSI());
                 Serial.printf(": %s \n", advertisedDevice.getManufacturerData().c_str());
@@ -46,7 +46,7 @@
 #else
     // define BTLE name
     // CAREFUL: each character eats into your usable adv packet length
-    BLECast bleCast("RadiationBeacon");
+    BLECast bleCast("TrappenMaar");
     
     uint8_t cnt = 0;
     char data[5];
